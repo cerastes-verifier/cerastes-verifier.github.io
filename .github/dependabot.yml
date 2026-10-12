@@ -1,0 +1,26 @@
+# Copyright 2025 Matt Borland
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at http://boost.org/LICENSE_1_0.txt)
+
+version: 2
+updates:
+  # JS dependencies live in package.json at the repo root.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-dependencies:
+        # Groups all updates into a single PR
+        patterns:
+          - "*"
+
+  # Keep the SHA-pinned GitHub Actions in .github/workflows updated (and patched).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-actions:
+        patterns:
+          - "*"
