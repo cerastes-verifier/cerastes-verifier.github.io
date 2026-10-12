@@ -1,0 +1,189 @@
+---
+import lockup from '../assets/cerastes-lockup-on-dark.svg';
+
+const title = 'Cerastes — Deductive verification for C and C++';
+const description =
+	'Cerastes is a deductive verifier for C and C++. The website is under construction.';
+const socialImage = new URL('/cerastes-social-preview.png', Astro.site);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="theme-color" content="#161C2E" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.site} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImage} />
+		<meta property="og:image:width" content="1280" />
+		<meta property="og:image:height" content="640" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap"
+		/>
+	</head>
+	<body>
+		<main>
+			<h1>
+				<img src={lockup.src} width={lockup.width} height={lockup.height} alt="Cerastes" />
+			</h1>
+			<p class="tagline">Deductive verification for C and C++</p>
+			<p class="status">
+				<span class="dot" aria-hidden="true"></span>
+				Under construction
+			</p>
+			<p class="note">
+				This site is on its way. In the meantime, follow along on{' '}
+				<a href="https://github.com/cerastes-verifier">GitHub</a>.
+			</p>
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--cerastes-ink: #161c2e;
+		--cerastes-sand: #d9a44e;
+		--cerastes-sand-light: #e8c895;
+		--cerastes-sand-deep: #bd8f44;
+		--cerastes-pale: #f4ebda;
+		--cerastes-muted: #9aa3b5;
+		--cerastes-font: 'Archivo', 'Helvetica Neue', sans-serif;
+
+		color-scheme: dark;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		margin: 0;
+		min-height: 100%;
+	}
+
+	body {
+		min-height: 100vh;
+		min-height: 100dvh;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		place-items: center;
+		padding: 2rem 1rem;
+		background: var(--cerastes-ink);
+		color: var(--cerastes-pale);
+		font-family: var(--cerastes-font);
+		font-weight: 400;
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+	}
+</style>
+
+<style>
+	main {
+		width: 100%;
+		max-width: 36rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	h1 {
+		margin: 0;
+		width: 100%;
+	}
+
+	h1 img {
+		display: block;
+		width: 100%;
+		max-width: 540px;
+		height: auto;
+		margin-inline: auto;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.tagline {
+		margin-top: 0.5rem;
+		font-size: clamp(1.125rem, 4vw, 1.5rem);
+	}
+
+	.status {
+		margin-top: 2.5rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.625rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid color-mix(in srgb, var(--cerastes-sand) 45%, transparent);
+		border-radius: 999px;
+		color: var(--cerastes-sand);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+	}
+
+	.dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: var(--cerastes-sand);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.dot {
+			animation: pulse 2.4s ease-in-out infinite;
+		}
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.35;
+		}
+	}
+
+	.note {
+		margin-top: 1.25rem;
+		color: var(--cerastes-muted);
+		font-size: 1rem;
+	}
+
+	a {
+		color: var(--cerastes-sand);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+	}
+
+	a:hover {
+		color: var(--cerastes-sand-light);
+	}
+
+	a:focus-visible {
+		outline: 2px solid var(--cerastes-sand);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+</style>
