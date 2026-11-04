@@ -3,7 +3,7 @@ import lockup from '../assets/cerastes-lockup-on-dark.svg';
 
 const title = 'Cerastes — Deductive verification for C and C++';
 const description =
-	'Cerastes is a deductive verifier for C and C++. The website is under construction.';
+	'Cerastes is a deductive verifier for C and C++: write contracts in your source, and it proves every function meets them or names the line where it cannot.';
 const socialImage = new URL('/cerastes-social-preview.png', Astro.site);
 ---
 
@@ -43,14 +43,32 @@ const socialImage = new URL('/cerastes-social-preview.png', Astro.site);
 				<img src={lockup.src} width={lockup.width} height={lockup.height} alt="Cerastes" />
 			</h1>
 			<p class="tagline">Deductive verification for C and C++</p>
+			<p class="about">
+				Write contracts in your C or C++ source: what a function requires, what it
+				ensures, what holds at each turn of a loop. Cerastes proves that every
+				function meets its contract on every input it allows, with no overflow, no
+				null or dangling pointer and no leak, or names the line where it cannot.
+			</p>
 			<p class="status">
 				<span class="dot" aria-hidden="true"></span>
-				Under construction
+				In development: C first, then C++ templates
 			</p>
+			<nav class="links" aria-label="Documentation">
+				<a href="https://cerastes.dev/cerastes/doc/tutorial/index.html">
+					<span class="label">Tutorial</span>
+					<span class="hint">Learn to verify C, one idea at a time</span>
+				</a>
+				<a href="https://cerastes.dev/cerastes/doc/">
+					<span class="label">Reference</span>
+					<span class="hint">What is accepted, checked and reported</span>
+				</a>
+				<a href="https://cerastes.dev/cerastes/doc/dev/index.html">
+					<span class="label">Developer guide</span>
+					<span class="hint">Build, test and extend cerastes</span>
+				</a>
+			</nav>
 			<p class="note">
-				This site is on its way. In the meantime, read the{' '}
-				<a href="https://cerastes.dev/cerastes/doc/">documentation</a> or follow
-				along on <a href="https://github.com/cerastes-verifier">GitHub</a>.
+				Follow along on <a href="https://github.com/cerastes-verifier">GitHub</a>.
 			</p>
 		</main>
 	</body>
@@ -129,8 +147,14 @@ const socialImage = new URL('/cerastes-social-preview.png', Astro.site);
 		font-size: clamp(1.125rem, 4vw, 1.5rem);
 	}
 
+	.about {
+		margin-top: 1.5rem;
+		color: var(--cerastes-pale);
+		font-size: 1.0625rem;
+	}
+
 	.status {
-		margin-top: 2.5rem;
+		margin-top: 2rem;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.625rem;
@@ -166,8 +190,40 @@ const socialImage = new URL('/cerastes-social-preview.png', Astro.site);
 		}
 	}
 
+	.links {
+		margin-top: 2rem;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+		gap: 0.75rem;
+	}
+
+	.links a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.875rem 1rem;
+		border: 1px solid color-mix(in srgb, var(--cerastes-sand) 45%, transparent);
+		border-radius: 0.5rem;
+		text-decoration: none;
+		text-align: left;
+	}
+
+	.links a:hover {
+		border-color: var(--cerastes-sand);
+	}
+
+	.links .label {
+		font-weight: 600;
+	}
+
+	.links .hint {
+		color: var(--cerastes-muted);
+		font-size: 0.875rem;
+	}
+
 	.note {
-		margin-top: 1.25rem;
+		margin-top: 1.5rem;
 		color: var(--cerastes-muted);
 		font-size: 1rem;
 	}
